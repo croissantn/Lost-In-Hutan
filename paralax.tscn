@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://238o0cwtl0w0"]
+
+[ext_resource type="Texture2D" uid="uid://bx6n82vwda07x" path="res://Aset/Background/PNG/Cartoon_Forest_BG_02/Layers/Sky.png" id="1_eq4hb"]
+[ext_resource type="Texture2D" uid="uid://dnhl78odpr4r5" path="res://Aset/Background/PNG/Cartoon_Forest_BG_02/Layers/BG_Decor.png" id="2_sv663"]
+[ext_resource type="Texture2D" uid="uid://lrmb6ug4oxb5" path="res://Aset/Background/PNG/Cartoon_Forest_BG_02/Layers/Middle_Decor.png" id="3_j08yd"]
+[ext_resource type="Texture2D" uid="uid://0xiw07i8okrr" path="res://Aset/Background/PNG/Cartoon_Forest_BG_02/Layers/Foreground.png" id="4_d8m7e"]
+
+[node name="Bg" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_eq4hb")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, -64)
+scale = Vector2(0.6, 0.659259)
+texture = ExtResource("2_sv663")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(0, -64)
+scale = Vector2(0.6, 0.65926)
+texture = ExtResource("3_j08yd")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(0, -64)
+scale = Vector2(0.6, 0.65926)
+texture = ExtResource("4_d8m7e")
+centered = false

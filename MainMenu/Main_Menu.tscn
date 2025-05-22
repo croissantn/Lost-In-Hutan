@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://luwrjn88u1ei"]
+
+[ext_resource type="Texture2D" uid="uid://cyjfeyp4d5bgp" path="res://Aset/e4fba522-e852-4072-9fd1-e8497d533258.png" id="1_4rnly"]
+[ext_resource type="Script" uid="uid://bxy4og41axrda" path="res://MainMenu/main_menu.gd" id="1_266rp"]
+[ext_resource type="FontFile" uid="uid://c0mdw4u4i2tqa" path="res://Aset/font/Steelfish Bd.otf" id="2_266rp"]
+[ext_resource type="PackedScene" uid="uid://dis0ehb86nqa0" path="res://LevelMenu/LevelMenu.tscn" id="4_aqj3x"]
+[ext_resource type="PackedScene" uid="uid://cpf4d3a4c2ciw" path="res://OptionsMenu/options_menu.tscn" id="4_etpqs"]
+[ext_resource type="Texture2D" uid="uid://d2j8eawmuvm43" path="res://Aset/logoputih.png" id="5_apybr"]
+[ext_resource type="AudioStream" uid="uid://bicofru54cxsg" path="res://Aset/music.mp3" id="6_6j2mi"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_266rp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4rnly")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_266rp")
+theme_override_font_sizes/font_size = 65
+text = "Lost In Forest"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Start"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Option"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[node name="LevelMenu" parent="." instance=ExtResource("4_aqj3x")]
+visible = false
+layout_mode = 1
+
+[node name="Options_Menu" parent="." instance=ExtResource("4_etpqs")]
+visible = false
+layout_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(63, 51)
+scale = Vector2(0.225714, 0.22191)
+texture = ExtResource("5_apybr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6j2mi")
+autoplay = true
+parameters/looping = true
