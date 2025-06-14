@@ -1,51 +1,25 @@
+# health.gd
 extends Node
-class_name Health
 
-signal health_changed(new_health, old_health)
-signal health_depleted
-signal damaged(amount)
-signal healed(amount)
+class_name Health # Agar bisa di-type hint
+
+signal health_changed(current_health: int, max_health: int)
+signal died
 
 @export var max_health: int = 100
-@export var current_health: int = 100
-@export var invincibility_time: float = 1.0
+var current_health: int
 
-var is_invincible: bool = false
-
-func _ready():
+func _ready() -> void:
 	current_health = max_health
+	health_changed.emit(current_health, max_health)
 
-func damage(amount: int) -> void:
-	if is_invincible:
-		return
-		
-	var old_health = current_health
+func take_damage(amount: int) -> void:
 	current_health = max(0, current_health - amount)
-	
-	emit_signal("damaged", amount)
-	emit_signal("health_changed", current_health, old_health)
-	
-	if current_health == 0:
-		emit_signal("health_depleted")
-	else:
-		start_invincibility()
+	health_changed.emit(current_health, max_health)
+	print(owner.name + " took " + str(amount) + " damage. Health: " + str(current_health))
+	if current_health <= 0:
+		died.emit()
 
 func heal(amount: int) -> void:
-	var old_health = current_health
 	current_health = min(max_health, current_health + amount)
-	
-	emit_signal("healed", amount)
-	emit_signal("health_changed", current_health, old_health)
-
-func start_invincibility() -> void:
-	if invincibility_time <= 0:
-		return
-		
-	is_invincible = true
-	await get_tree().create_timer(invincibility_time).timeout
-	is_invincible = false
-
-func get_health_percent() -> float:
-	if max_health <= 0:
-		return 0.0
-	return float(current_health) / float(max_health)
+	health_changed.emit(current_health, max_health)

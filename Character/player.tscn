@@ -1,7 +1,7 @@
 [gd_scene load_steps=184 format=3 uid="uid://dtiak8l3exq3i"]
 
 [ext_resource type="Texture2D" uid="uid://oy5vsu0j4nkj" path="res://Aset/Character/Villager_2/PNG/PNG Sequences/Idle/0_Villager_Idle_000.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://d00df7eq7kvut" path="res://Character/player.gd" id="1_8j4u3"]
+[ext_resource type="Script" uid="uid://ck55rmafroxyj" path="res://player.gd" id="1_8j4u3"]
 [ext_resource type="Texture2D" uid="uid://doxuh7v3wevjl" path="res://Aset/Character/Villager_2/PNG/PNG Sequences/Slashing/0_Villager_Slashing_000.png" id="2_f37gn"]
 [ext_resource type="Texture2D" uid="uid://ql0e60q1pl4s" path="res://Aset/Character/Villager_2/PNG/PNG Sequences/Slashing in The Air/0_Villager_Slashing in The Air_000.png" id="2_kgchn"]
 [ext_resource type="Texture2D" uid="uid://7tvyb6xafjyb" path="res://Aset/Character/Villager_2/PNG/PNG Sequences/Slashing in The Air/0_Villager_Slashing in The Air_001.png" id="3_3ecvt"]

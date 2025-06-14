@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://hcl03xxdhybu"]
+
+[ext_resource type="Script" uid="uid://dsewym5fn8uqe" path="res://ground_manager.gd" id="1_mi635"]
+[ext_resource type="Texture2D" uid="uid://cdvliwhwdnw2w" path="res://Aset/Background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png" id="1_s8bxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ajho"]
+size = Vector2(1153, 32)
+
+[node name="Platform" type="StaticBody2D"]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(575.5, 632)
+shape = SubResource("RectangleShape2D_5ajho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 444)
+scale = Vector2(0.6, 0.377778)
+texture = ExtResource("1_s8bxr")
+flip_h = true
+
+[node name="Ground Manager" type="Node2D" parent="."]
+script = ExtResource("1_mi635")
